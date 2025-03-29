@@ -24,7 +24,7 @@ script = ExtResource("1_qxrlw")
 environment = SubResource("Environment_ebmjs")
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00328922, 2.21349, 0.00159693)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_rbk5v")
 gm = NodePath("..")
 sm = NodePath("StateMachine")
@@ -45,10 +45,11 @@ player = NodePath("../..")
 camcon = NodePath("../../CameraController")
 
 [node name="CameraController" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002, 0.7, -0.5)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377321, 1.02798, 0.00777197)
 current = true
+fov = 85.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0111753, -0.0591547, -0.359137)
@@ -58,11 +59,11 @@ shape = SubResource("CapsuleShape3D_hcwif")
 one_shot = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76339, -3.23303)
+transform = Transform3D(46.335, 0, 0, 0, 1, 0, 0, 0, 36.335, 0, -0.515651, -3.23303)
 material = SubResource("StandardMaterial3D_qxrlw")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124398, 3.99817, -3.26252)
+transform = Transform3D(38.86, 0, 0, 0, 0.025, 0, 0, 0, 40.625, 0, 6, -2.953)
 material = SubResource("StandardMaterial3D_wrm1d")
 
 [connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Normal" method="_on_flip_cooldown_timeout"]

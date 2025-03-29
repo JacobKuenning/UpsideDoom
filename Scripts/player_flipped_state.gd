@@ -7,16 +7,23 @@ var SPEED
 var ACCEL
 var FRIC
 var look_dir: Vector2
+var OVERRIDE = 1
+var FLIP_ACCEL_WIN
 
 var mouse_sens
 
 var can_flip = false
 
 func enter():
-	print("flipped state entered")
+	player.position.y = 5
 	camcon.rotation_degrees.z = 180 
+	camcon.position.y = 0.3
 	can_flip = false
 	player.flipcd.start()
+	if player.moving:
+		ACCEL = 1000
+		await get_tree().create_timer(FLIP_ACCEL_WIN).timeout
+		ACCEL = 2
 	
 func exit():
 	pass
@@ -29,15 +36,19 @@ func physics_update(_delta):
 	var direction = (player.transform.basis * Vector3(-input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		accelerate(direction)
-		print(direction)
 	else:
 		apply_friction()	
+		
+	if player.velocity != Vector3.ZERO:
+		player.moving = true
+	else:
+		player.moving = false
 	
 	_rotate_camera(_delta)
 	player.move_and_slide()	
 
 func accelerate(direction):
-	player.velocity = player.velocity.move_toward(direction * SPEED, ACCEL)
+	player.velocity = player.velocity.move_toward(direction * SPEED, ACCEL * OVERRIDE)
 
 func apply_friction():
 	player.velocity = player.velocity.move_toward(Vector3.ZERO,FRIC)
