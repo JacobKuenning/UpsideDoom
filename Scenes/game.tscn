@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkmms6ee41kve"]
+[gd_scene load_steps=10 format=3 uid="uid://dkmms6ee41kve"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_rbk5v"]
+[ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="3_wowpa"]
+[ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="4_i6g32"]
+[ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="5_1l0tm"]
 
 [sub_resource type="Environment" id="Environment_ebmjs"]
 ambient_light_source = 2
@@ -9,23 +12,58 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hcwif"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxrlw"]
+albedo_color = Color(0.451633, 0.336212, 0.686601, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrm1d"]
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_qxrlw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ebmjs")
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37033, 0)
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00328922, 2.21349, 0.00159693)
 script = ExtResource("1_rbk5v")
 gm = NodePath("..")
+sm = NodePath("StateMachine")
+flipcd = NodePath("FlipCooldown")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
+[node name="StateMachine" type="Node" parent="Player" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_wowpa")
+initial_state = NodePath("Normal")
+
+[node name="Normal" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("player", "camcon")]
+script = ExtResource("4_i6g32")
+player = NodePath("../..")
+camcon = NodePath("../../CameraController")
+
+[node name="Flipped" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("player", "camcon")]
+script = ExtResource("5_1l0tm")
+player = NodePath("../..")
+camcon = NodePath("../../CameraController")
+
+[node name="CameraController" type="Node3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377321, 1.02798, 0.00777197)
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0111753, -0.0591547, -0.359137)
 shape = SubResource("CapsuleShape3D_hcwif")
 
+[node name="FlipCooldown" type="Timer" parent="Player"]
+one_shot = true
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.316, -3.23303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76339, -3.23303)
+material = SubResource("StandardMaterial3D_qxrlw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124398, 3.99817, -3.26252)
+material = SubResource("StandardMaterial3D_wrm1d")
+
+[connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Normal" method="_on_flip_cooldown_timeout"]
+[connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Flipped" method="_on_flip_cooldown_timeout"]
