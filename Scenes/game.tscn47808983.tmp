@@ -27,15 +27,12 @@ script = ExtResource("1_qxrlw")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ebmjs")
 
-[node name="Projectiles" type="Node3D" parent="."]
-
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_rbk5v")
 gm = NodePath("..")
 sm = NodePath("StateMachine")
 flipcd = NodePath("FlipCooldown")
-projectile_speed = 100
 
 [node name="GunManager" type="Node3D" parent="Player"]
 script = SubResource("GDScript_wowpa")
@@ -55,13 +52,14 @@ player = NodePath("../..")
 camcon = NodePath("../../CameraController")
 
 [node name="CameraController" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002, 0.7, -0.5)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraController"]
 current = true
 fov = 85.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0111753, -0.0591547, -0.359137)
 shape = SubResource("CapsuleShape3D_hcwif")
 
 [node name="FlipCooldown" type="Timer" parent="Player"]

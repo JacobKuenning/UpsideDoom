@@ -17,7 +17,7 @@ var can_flip = false
 func enter():
 	player.position.y = 5
 	camcon.rotation_degrees.z = 180 
-	camcon.position.y = 0.3
+	camcon.position.y = -0.7
 	can_flip = false
 	player.flipcd.start()
 	if player.moving:

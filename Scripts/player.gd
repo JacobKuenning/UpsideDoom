@@ -1,4 +1,5 @@
 extends CharacterBody3D
+var projectile = preload("res://Scenes/player_projectile.tscn")
 @export var gm : Node3D
 @export var sm : Node
 @export var flipcd : Timer
@@ -9,7 +10,9 @@ var moving = false
 @export var ACCEL = 2
 @export var FRIC = 1
 @export var FLIP_ACCEL_WIN = 0.1 #how much time after flip the player is given max acceleration
+@export var flip_cooldown = 1
 @export var mouse_sens = 50
+@export var projectile_speed = 40
 
 var look_dir: Vector2
 
@@ -21,6 +24,18 @@ func _ready():
 		state.FRIC = FRIC
 		state.mouse_sens = mouse_sens
 		state.FLIP_ACCEL_WIN = FLIP_ACCEL_WIN
+	flipcd.wait_time = flip_cooldown
 
 func _physics_process(delta):
 	pass
+	
+func _input(event: InputEvent): #handle mouse motion and other button inputs
+	if event.is_action_pressed("shoot"):
+		fire_weapon()
+		
+func fire_weapon():
+	var new_proj = projectile.instantiate()
+	gm.projectiles.add_child(new_proj)
+	new_proj.position = position
+	new_proj.rotation.y = rotation.y
+	new_proj.speed = projectile_speed
