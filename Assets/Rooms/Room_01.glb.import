@@ -32,6 +32,22 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"frames": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/frames.tres"
+},
+"walls": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/walls.tres"
+}
+},
+"nodes": {
+"PATH:Object": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=0
 gltf/embedded_image_handling=1

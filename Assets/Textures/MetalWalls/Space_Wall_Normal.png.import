@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba2lv5w0opjt1"
-path.s3tc="res://.godot/imported/Cobble_Wall_512.png-24797b87a699bd30d6147b255afc1edf.s3tc.ctex"
+uid="uid://b5t21ms65wihj"
+path.s3tc="res://.godot/imported/Space_Wall_Normal.png-ba546e37d9cedaf596f6d1bcef445789.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Cobble/Cobble_Wall_512.png"
-dest_files=["res://.godot/imported/Cobble_Wall_512.png-24797b87a699bd30d6147b255afc1edf.s3tc.ctex"]
+source_file="res://Assets/Textures/MetalWalls/Space_Wall_Normal.png"
+dest_files=["res://.godot/imported/Space_Wall_Normal.png-ba546e37d9cedaf596f6d1bcef445789.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Assets/Textures/MetalWalls/Space_Wall_Normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

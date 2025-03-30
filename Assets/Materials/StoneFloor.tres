@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dsuop6xvq52tj"]
+
+[ext_resource type="Texture2D" uid="uid://c4pqb38vle21n" path="res://Assets/Textures/Cobble/Cobble_Floor.png" id="1_8ta2e"]
+[ext_resource type="Texture2D" uid="uid://narlmfpwdpjx" path="res://Assets/Textures/Cobble/Cobble_Floor_Normal.png" id="2_8cwjq"]
+
+[resource]
+albedo_texture = ExtResource("1_8ta2e")
+normal_enabled = true
+normal_texture = ExtResource("2_8cwjq")
+uv1_scale = Vector3(10, 10, 10)
+grow_amount = -0.08
