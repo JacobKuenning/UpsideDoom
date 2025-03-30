@@ -6,6 +6,10 @@ func _physics_process(delta):
 	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print("area3d body entered")
+	queue_free()
+	pass # Replace with function body.
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
 	queue_free()
 	pass # Replace with function body.
