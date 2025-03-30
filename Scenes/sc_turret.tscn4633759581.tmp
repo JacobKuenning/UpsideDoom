@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3fus6a8tba5p"]
+[gd_scene load_steps=28 format=3 uid="uid://b3fus6a8tba5p"]
 
 [ext_resource type="Texture2D" uid="uid://db7dus0m5uk8u" path="res://Sprites/spr_TurretFiring.png" id="1_qh25h"]
 [ext_resource type="Script" uid="uid://ct54vwqyhr82c" path="res://Scripts/turret.gd" id="1_tuqke"]
@@ -180,18 +180,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kd2gx"]
-
-[node name="sc_Turret" type="Node3D" node_paths=PackedStringArray("sm", "as3d", "player_tracker")]
+[node name="sc_Turret" type="Node3D" node_paths=PackedStringArray("sm", "as3d")]
 script = ExtResource("1_tuqke")
 sm = NodePath("StateMachine")
 as3d = NodePath("AnimatedSprite3D")
-player_tracker = NodePath("PlayerTracker")
-rotation_speed = 0.02
-bullet_speed = 20
+rotation_speed = 0.001
 
 [node name="PlayerTracker" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01808, 0)
 script = ExtResource("2_kd2gx")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -199,37 +194,18 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.27785, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_sa76i")
-animation = &"front"
+animation = &"front_right"
 script = ExtResource("1_yb3al")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_hiahx")
 initial_state = NodePath("SearchState")
 
-[node name="SearchState" type="Node" parent="StateMachine" node_paths=PackedStringArray("as3d")]
+[node name="SearchState" type="Node" parent="StateMachine"]
 script = ExtResource("6_c3xjm")
-as3d = NodePath("../../AnimatedSprite3D")
 
-[node name="ShootState" type="Node" parent="StateMachine" node_paths=PackedStringArray("as3d", "timer")]
+[node name="ShootState" type="Node" parent="StateMachine"]
 script = ExtResource("7_kd2gx")
-as3d = NodePath("../../AnimatedSprite3D")
-timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="StateMachine/ShootState"]
-wait_time = 0.1
 
 [node name="ReloadState" type="Node" parent="StateMachine"]
 script = ExtResource("8_nw17k")
-reload_time = 4
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5421, 0)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.14, 0, 0, 0, 1.14, 0, 0, 0, 1.14, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_kd2gx")
-
-[connection signal="timeout" from="StateMachine/ShootState/Timer" to="StateMachine/ShootState" method="_on_timer_timeout"]
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

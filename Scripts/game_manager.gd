@@ -10,8 +10,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	GameManager.player_loc = player.position
 	GameManager.game_manager = self
+	GameManager.projectiles = projectiles
 	
 func decrement_health():
-	player_health -= 1
-	print("player health decreased")
-	
+	player_health -= 1	
+	print("lost health")

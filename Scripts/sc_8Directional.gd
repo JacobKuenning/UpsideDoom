@@ -1,17 +1,17 @@
-extends Node3D
-@onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
+extends AnimatedSprite3D
 
 var angle_to_player = null
+var bypass_and_shoot = false
 
 var animations = [
-	"front", 		# 0
-	"front_right",	# 45
-	"right",		# 90
-	"back_right", 	# 135
 	"back", 		# 180
 	"back_left", 	# 225
 	"left", 		# 270
-	"front_left"	# 315
+	"front_left",	# 315
+	"front", 		# 0
+	"front_right",	# 45
+	"right",		# 90
+	"back_right" 	# 135
 ]
 
 
@@ -21,6 +21,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !bypass_and_shoot:
+		directional_sprites()
+	
+func directional_sprites():
 	if not GameManager.player_loc:
 		return
 		
@@ -42,8 +46,5 @@ func _process(delta: float) -> void:
 	
 	if anim_index < animations.size():
 		var target_anim = animations[anim_index]
-		if sprite.animation != target_anim:
-			sprite.play(target_anim)
-	
-	
-	
+		if animation != target_anim:
+			play(target_anim)

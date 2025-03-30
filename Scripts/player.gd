@@ -38,3 +38,9 @@ func fire_weapon():
 	new_proj.position = position
 	new_proj.rotation.y = rotation.y
 	new_proj.speed = projectile_speed
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	GameManager.game_manager.decrement_health()
+	area.get_parent().queue_free() #destroy bullets that touch you
+	pass # Replace with function body.
