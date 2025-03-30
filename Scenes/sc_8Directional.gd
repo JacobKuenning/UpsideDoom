@@ -22,6 +22,29 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	angle_to_player = global_position.angle_to(GameManager.player_loc)
-	print(str(rad_to_deg(angle_to_player)))
+	if not GameManager.player_loc:
+		return
+		
+	var to_player = GameManager.player_loc - global_position
+	to_player.y = 0
+	to_player = to_player.normalized()
+	
+	var forward = -global_transform.basis.z
+	forward.y = 0
+	forward = forward.normalized()
+	
+	var angle = forward.signed_angle_to(to_player, Vector3.UP)
+	var degrees = rad_to_deg(angle)
+	
+	if degrees < 0:
+		degrees +=360
+		
+	var anim_index = int(round(degrees / 45)) % 8
+	
+	if anim_index < animations.size():
+		var target_anim = animations[anim_index]
+		if sprite.animation != target_anim:
+			sprite.play(target_anim)
+	
+	
 	

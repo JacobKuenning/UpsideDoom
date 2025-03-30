@@ -40,37 +40,37 @@ region = Rect2(896, 0, 128, 128)
 atlas = ExtResource("1_qh25h")
 region = Rect2(1024, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kn2hf"]
-atlas = ExtResource("2_yb3al")
-region = Rect2(0, 768, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a85kl"]
-atlas = ExtResource("2_yb3al")
-region = Rect2(0, 512, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x1rjx"]
-atlas = ExtResource("2_yb3al")
-region = Rect2(0, 640, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xiiaj"]
-atlas = ExtResource("2_yb3al")
-region = Rect2(0, 384, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dkor"]
 atlas = ExtResource("2_yb3al")
 region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6dyt"]
-atlas = ExtResource("2_yb3al")
-region = Rect2(0, 896, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_512nu"]
 atlas = ExtResource("2_yb3al")
 region = Rect2(0, 128, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6dyt"]
+atlas = ExtResource("2_yb3al")
+region = Rect2(0, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a85kl"]
+atlas = ExtResource("2_yb3al")
+region = Rect2(0, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiiaj"]
+atlas = ExtResource("2_yb3al")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1rjx"]
+atlas = ExtResource("2_yb3al")
+region = Rect2(0, 640, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtmbe"]
 atlas = ExtResource("2_yb3al")
 region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn2hf"]
+atlas = ExtResource("2_yb3al")
+region = Rect2(0, 768, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sa76i"]
 animations = [{
@@ -111,50 +111,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kn2hf")
-}],
-"loop": true,
-"name": &"E",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a85kl")
-}],
-"loop": true,
-"name": &"N",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x1rjx")
-}],
-"loop": true,
-"name": &"NE",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xiiaj")
-}],
-"loop": true,
-"name": &"NW",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_5dkor")
 }],
 "loop": true,
-"name": &"S",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m6dyt")
-}],
-"loop": true,
-"name": &"SE",
+"name": &"back",
 "speed": 5.0
 }, {
 "frames": [{
@@ -162,7 +122,39 @@ animations = [{
 "texture": SubResource("AtlasTexture_512nu")
 }],
 "loop": true,
-"name": &"SW",
+"name": &"back_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6dyt")
+}],
+"loop": true,
+"name": &"back_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a85kl")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiiaj")
+}],
+"loop": true,
+"name": &"front_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1rjx")
+}],
+"loop": true,
+"name": &"front_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -170,7 +162,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_vtmbe")
 }],
 "loop": true,
-"name": &"W",
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn2hf")
+}],
+"loop": true,
+"name": &"right",
 "speed": 5.0
 }]
 
@@ -178,8 +178,8 @@ animations = [{
 script = ExtResource("1_yb3al")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63126, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.27785, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_sa76i")
-animation = &"W"
+animation = &"front_right"
