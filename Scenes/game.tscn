@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkmms6ee41kve"]
+[gd_scene load_steps=15 format=3 uid="uid://dkmms6ee41kve"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_rbk5v"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="5_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://dyxouprsboiky" path="res://Scenes/melee.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="7_1l0tm"]
+[ext_resource type="Material" uid="uid://dsuop6xvq52tj" path="res://Assets/Materials/Wall_Texture.tres" id="8_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://badfkqx6smbhr" path="res://Assets/Rooms/Room_01.glb" id="8_v158k"]
 
 [sub_resource type="Environment" id="Environment_ebmjs"]
 ambient_light_source = 2
@@ -79,12 +81,16 @@ speed = 6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.38149)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(46.335, 0, 0, 0, 1, 0, 0, 0, 36.335, 0, -0.515651, -3.23303)
+transform = Transform3D(51.1132, 0, 0, 0, 1, 0, 0, 0, 49.0833, 0, -0.515651, -3.23303)
+material_override = ExtResource("8_h4fw4")
 material = SubResource("StandardMaterial3D_qxrlw")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(38.86, 0, 0, 0, 0.025, 0, 0, 0, 40.625, 0, 6, -2.953)
+transform = Transform3D(48.8442, 0, 0, 0, 0.0249664, 0, 0, 0, 50.7657, 0, 6, -2.953)
 material = SubResource("StandardMaterial3D_wrm1d")
+
+[node name="Room_01" parent="." instance=ExtResource("8_v158k")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.23018, 0, -2.19097)
 
 [connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Normal" method="_on_flip_cooldown_timeout"]
 [connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Flipped" method="_on_flip_cooldown_timeout"]

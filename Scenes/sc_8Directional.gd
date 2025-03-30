@@ -3,7 +3,6 @@ extends Node3D
 
 var angle_to_player = null
 
-
 var animations = [
 	"front", 		# 0
 	"front_right",	# 45
