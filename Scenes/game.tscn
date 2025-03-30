@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="3_wowpa"]
 [ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="4_i6g32"]
 [ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="5_1l0tm"]
-[ext_resource type="PackedScene" path="res://Scenes/melee.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://dyxouprsboiky" path="res://Scenes/melee.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="7_1l0tm"]
 
 [sub_resource type="Environment" id="Environment_ebmjs"]
