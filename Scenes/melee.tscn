@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyxouprsboiky"]
+[gd_scene load_steps=8 format=3 uid="uid://dyxouprsboiky"]
 
 [ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="1_5et7s"]
 [ext_resource type="Script" uid="uid://cb535rx4go5wr" path="res://Scripts/melee.gd" id="1_21r13"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://dj031wg6x53xb" path="res://Scripts/melee_attack_state.gd" id="5_a8khj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5j5ia"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_21r13"]
+radius = 0.308789
 
 [node name="Melee" type="Node3D" node_paths=PackedStringArray("sm")]
 script = ExtResource("1_21r13")
@@ -29,3 +32,12 @@ script = ExtResource("5_a8khj")
 transform = Transform3D(63.535, 0, 0, 0, 63.535, 0, 0, 0, 63.535, 0, 0, 0)
 billboard = 2
 texture = SubResource("PlaceholderTexture2D_5j5ia")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_21r13")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
