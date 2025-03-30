@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://uv017yxxfdko"
-path="res://.godot/imported/ROOM_01_Square.fbx-46d2219fe9e1f7d382194f8be6152f9c.scn"
+uid="uid://dc13huqc1xr4r"
+path="res://.godot/imported/DOOR_FRAMES_01.fbx-a43b9cfd220f1d6a8b02e025b76f9596.scn"
 
 [deps]
 
-source_file="res://Assets/Rooms/ROOM_01_Square.fbx"
-dest_files=["res://.godot/imported/ROOM_01_Square.fbx-46d2219fe9e1f7d382194f8be6152f9c.scn"]
+source_file="res://Assets/Rooms/DOOR_FRAMES_01.fbx"
+dest_files=["res://.godot/imported/DOOR_FRAMES_01.fbx-a43b9cfd220f1d6a8b02e025b76f9596.scn"]
 
 [params]
 
