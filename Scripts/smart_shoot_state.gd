@@ -12,8 +12,10 @@ var distance_before_shooting
 @export var timer : Timer
 
 func enter():
-	timer.start()
 	as3d.bypass_and_shoot = true
+	as3d.play(&"back")
+	await get_tree().create_timer(0.2).timeout
+	timer.start()
 	as3d.play(&"Attacking")
 	await get_tree().create_timer(shoot_time).timeout
 	Transitioned.emit(self, "reloadstate")
