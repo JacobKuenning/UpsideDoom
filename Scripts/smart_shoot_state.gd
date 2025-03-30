@@ -1,15 +1,17 @@
 extends State
-class_name TurretShootState
+class_name SmartShootState
 
-var turret
+var smart
 @export var as3d : AnimatedSprite3D
 var player_tracker
 var rotation_speed
+var walk_speed
+var distance_before_shooting
+
 @export var shoot_time = 1
 @export var timer : Timer
 
 func enter():
-	await get_tree().create_timer(0.4).timeout #make it feel more natural
 	timer.start()
 	as3d.bypass_and_shoot = true
 	as3d.play(&"Attacking")
@@ -26,7 +28,7 @@ func update(_delta):
 	pass
 	
 func physics_update(_delta):
-	turret.look_at(GameManager.player_loc)
+	smart.look_at(GameManager.player_loc)
 	pass
 
 

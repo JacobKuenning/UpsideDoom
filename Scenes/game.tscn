@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkmms6ee41kve"]
+[gd_scene load_steps=15 format=3 uid="uid://dkmms6ee41kve"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_rbk5v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dyxouprsboiky" path="res://Scenes/melee.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="7_1l0tm"]
 [ext_resource type="Material" uid="uid://dsuop6xvq52tj" path="res://Assets/Materials/StoneFloor.tres" id="8_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://io2i8dovp4jg" path="res://Scenes/smart.tscn" id="8_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://b250nn0f7p327" path="res://Assets/Rooms/Room_01.glb" id="8_v158k"]
 [ext_resource type="Material" uid="uid://502o1syp8sdj" path="res://Assets/Materials/Tiles.tres" id="9_ldgsr"]
 
@@ -81,6 +82,10 @@ speed = 6
 
 [node name="sc_Turret" parent="Enemies" instance=ExtResource("7_1l0tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.38149)
+
+[node name="Smart" parent="Enemies" instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.7293)
+walk_speed = 0.1
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(51.1132, 0, 0, 0, 1, 0, 0, 0, 49.0833, 0, -0.515651, -3.23303)
