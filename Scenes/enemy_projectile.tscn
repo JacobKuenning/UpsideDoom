@@ -1,8 +1,120 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm7t2bvvv84da"]
+[gd_scene load_steps=20 format=3 uid="uid://cm7t2bvvv84da"]
 
 [ext_resource type="Script" uid="uid://c3p44adkr6eod" path="res://Scripts/player_projectile.gd" id="1_33pam"]
+[ext_resource type="Texture2D" uid="uid://k0863uuss2aj" path="res://Sprites/BulletSprites/EnemySpriteSheet.png" id="2_ibebl"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_klkvw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjudp"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skh11"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wtt3"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg26t"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4dlx"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iut4j"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etufa"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky3yg"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvrso"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04sxc"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_editn"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_colrt"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o45xf"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x1bi"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yso1q"]
+atlas = ExtResource("2_ibebl")
+region = Rect2(1792, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_emab8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjudp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skh11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wtt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg26t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4dlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iut4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etufa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky3yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvrso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04sxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_editn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_colrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o45xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x1bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yso1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_klkvw"]
 radius = 0.841739
@@ -13,10 +125,11 @@ collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_33pam")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(130.885, 0, 0, 0, 130.885, 0, 0, 0, 130.885, 0, 0, 0)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
-texture = SubResource("PlaceholderTexture2D_klkvw")
+sprite_frames = SubResource("SpriteFrames_emab8")
+autoplay = "default"
+frame_progress = 0.12538
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_klkvw")
