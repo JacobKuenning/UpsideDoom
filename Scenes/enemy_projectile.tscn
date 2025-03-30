@@ -129,7 +129,7 @@ script = ExtResource("1_33pam")
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_emab8")
 autoplay = "default"
-frame_progress = 0.12538
+frame_progress = 0.227142
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_klkvw")
