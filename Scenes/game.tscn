@@ -72,7 +72,7 @@ one_shot = true
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Melee" parent="Enemies" instance=ExtResource("6_i6g32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5725, 5.70267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.597, 5.70267)
 speed = 6
 
 [node name="sc_Turret" parent="Enemies" instance=ExtResource("7_1l0tm")]

@@ -4,7 +4,6 @@ var melee
 var attack_distance_thresh = 2
 
 func enter():
-	print("melee chase state entered")
 	pass
 	
 func exit():

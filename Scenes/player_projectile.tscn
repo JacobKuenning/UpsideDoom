@@ -5,7 +5,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_klkvw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_klkvw"]
-radius = 0.199332
+radius = 0.841739
 
 [node name="PlayerProjectile" type="RigidBody3D"]
 collision_layer = 0
@@ -24,7 +24,7 @@ disabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_klkvw")
