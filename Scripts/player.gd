@@ -16,7 +16,6 @@ var moving = false
 
 var look_dir: Vector2
 
-
 func _ready():
 	for state in sm.get_children(): #populating the normal and flipped states variables to be the ones set in the editor
 		state.SPEED = SPEED

@@ -15,6 +15,7 @@ var mouse_sens
 var can_flip = false
 
 func enter():
+	GameManager.flipped = false
 	player.position.y = 1
 	camcon.rotation_degrees.z = 0
 	camcon.position.y = 0.7
