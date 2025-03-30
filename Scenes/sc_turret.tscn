@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://b3fus6a8tba5p"]
+[gd_scene load_steps=22 format=3 uid="uid://b3fus6a8tba5p"]
 
 [ext_resource type="Texture2D" uid="uid://db7dus0m5uk8u" path="res://Sprites/spr_TurretFiring.png" id="1_qh25h"]
+[ext_resource type="Script" uid="uid://76hddnkjyydb" path="res://Scenes/sc_8Directional.gd" id="1_yb3al"]
 [ext_resource type="Texture2D" uid="uid://87ls6lplyrpl" path="res://Sprites/spr_Turret8Directions.png" id="2_yb3al"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27sss"]
@@ -174,10 +175,11 @@ animations = [{
 }]
 
 [node name="sc_Turret" type="Node3D"]
+script = ExtResource("1_yb3al")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63126, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_sa76i")
-animation = &"S"
-frame_progress = 0.0759272
+animation = &"W"
