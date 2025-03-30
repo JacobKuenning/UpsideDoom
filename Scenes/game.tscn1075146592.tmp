@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkmms6ee41kve"]
+[gd_scene load_steps=13 format=3 uid="uid://dkmms6ee41kve"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_rbk5v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="4_i6g32"]
 [ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="5_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://dyxouprsboiky" path="res://Scenes/melee.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="7_1l0tm"]
 
 [sub_resource type="Environment" id="Environment_ebmjs"]
 ambient_light_source = 2
@@ -73,6 +74,9 @@ one_shot = true
 [node name="Melee" parent="Enemies" instance=ExtResource("6_i6g32")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5725, 5.70267)
 speed = 6
+
+[node name="sc_Turret" parent="Enemies" instance=ExtResource("7_1l0tm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878525, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(46.335, 0, 0, 0, 1, 0, 0, 0, 36.335, 0, -0.515651, -3.23303)
