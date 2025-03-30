@@ -1,6 +1,7 @@
 extends Node3D
 @export var sm : Node
 @export var speed = 20
+
 var health = 5
 
 var distance_to_player

@@ -2,6 +2,7 @@ extends State
 class_name MeleeAttack
 var attack_distance_thresh = 2
 var melee
+@onready var attack_timer = $AttackTimer
 
 func enter():
 	pass

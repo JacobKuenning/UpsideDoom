@@ -28,6 +28,9 @@ script = ExtResource("4_iuo6a")
 [node name="MeleeAttack" type="Node" parent="StateMachine"]
 script = ExtResource("5_a8khj")
 
+[node name="AttackTimer" type="Timer" parent="StateMachine/MeleeAttack"]
+wait_time = 0.7
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(63.535, 0, 0, 0, 63.535, 0, 0, 0, 63.535, 0, 0, 0)
 billboard = 2
