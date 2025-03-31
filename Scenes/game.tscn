@@ -33,7 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.38149)
 
 [node name="Smart" parent="Enemies" instance=ExtResource("8_o5yvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.7293)
-walk_speed = 0.1
 
 [node name="Spin" parent="Enemies" instance=ExtResource("9_rku1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3792, 0, -6.9241)
@@ -47,7 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="Smart" parent="EnemiesCeiling" instance=ExtResource("8_o5yvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.04929, 2.8117)
-walk_speed = 0.1
 
 [node name="Spin" parent="EnemiesCeiling" instance=ExtResource("9_rku1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.02439, 5.68981)

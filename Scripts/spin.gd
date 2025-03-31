@@ -10,6 +10,7 @@ var id = 2
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
 var shoot_pos = 1
+var vfxy = 0
 
 func _ready():
 	timer.wait_time = spin_rate
@@ -28,13 +29,13 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func die():
 	var vfx = explosion.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	queue_free()
 	
 func hit():
 	var vfx = spark.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	pass
 
 func _on_timer_timeout() -> void:

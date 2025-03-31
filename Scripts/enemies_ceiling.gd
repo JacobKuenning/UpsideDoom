@@ -10,3 +10,4 @@ func _ready():
 			enemy.player_tracker.position.y = 1.8
 		if enemy.id == 2:
 			enemy.shoot_pos = 1.7
+		enemy.vfxy = 6

@@ -16,6 +16,7 @@ var health = 5
 var distance_to_player
 
 var flipped = false
+var vfxy = 0
 
 func _ready():
 	for state in sm.get_children():
@@ -43,11 +44,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func die():
 	var vfx = explosion.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	queue_free()
 	
 func hit():
 	var vfx = spark.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	pass

@@ -11,6 +11,7 @@ extends Node3D
 var distance_to_player
 var id = 4
 var flipped = false
+var vfxy = 0
 
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
@@ -45,11 +46,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func die():
 	var vfx = explosion.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	queue_free()
 	
 func hit():
 	var vfx = spark.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	pass

@@ -10,6 +10,7 @@ var flipped = false
 var id =3
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
+var vfxy = 0
 
 func _ready():
 	player_tracker.projectile_speed = bullet_speed
@@ -33,11 +34,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func die():
 	var vfx = explosion.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	queue_free()
 	
 func hit():
 	var vfx = spark.instantiate()
 	GameManager.vfx.add_child(vfx)
-	vfx.position = global_position
+	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
 	pass
