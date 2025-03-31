@@ -1,8 +1,9 @@
-[gd_scene load_steps=57 format=3 uid="uid://dyxouprsboiky"]
+[gd_scene load_steps=58 format=3 uid="uid://dyxouprsboiky"]
 
 [ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="1_5et7s"]
 [ext_resource type="Script" uid="uid://cb535rx4go5wr" path="res://Scripts/melee.gd" id="1_21r13"]
 [ext_resource type="Texture2D" uid="uid://btqynhfdr6ne2" path="res://Sprites/melee/meleeAtk.png" id="2_a8khj"]
+[ext_resource type="Script" uid="uid://dowcx8f8ev67q" path="res://Scripts/player_tracker.gd" id="2_r6bvu"]
 [ext_resource type="Script" uid="uid://cvgkjkrt2lfrc" path="res://Scripts/melee_idle_state.gd" id="3_dfbjg"]
 [ext_resource type="Texture2D" uid="uid://bigntxjp26i12" path="res://Sprites/melee/Melee8Dir.png" id="3_r6bvu"]
 [ext_resource type="Script" uid="uid://pqlgsf8y8q75" path="res://Scripts/melee_chase_state.gd" id="4_iuo6a"]
@@ -377,21 +378,27 @@ animations = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_21r13"]
 radius = 0.308789
 
-[node name="Melee" type="RigidBody3D" node_paths=PackedStringArray("sm")]
+[node name="Melee" type="RigidBody3D" node_paths=PackedStringArray("sm", "player_tracker", "as3d")]
 collision_layer = 4
 collision_mask = 4
 gravity_scale = 0.0
 script = ExtResource("1_21r13")
 sm = NodePath("StateMachine")
+player_tracker = NodePath("PlayerTracker")
+rotation_speed = 0.05
+as3d = NodePath("AnimatedSprite3D")
+
+[node name="PlayerTracker" type="Node3D" parent="."]
+script = ExtResource("2_r6bvu")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.27785, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_g64gn")
 animation = &"Attacking"
-frame = 1
-frame_progress = 0.552539
+frame = 4
+frame_progress = 0.124213
 script = ExtResource("4_mn4u5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
