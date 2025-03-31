@@ -126,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tgy6u")
 }],
-"loop": false,
+"loop": true,
 "name": &"Firing",
 "speed": 60.0
 }, {
@@ -148,19 +148,16 @@ environment = SubResource("Environment_ebmjs")
 
 [node name="Projectiles" type="Node3D" parent="."]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd", "guntimer", "camcom", "as3d")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd", "guntimer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_rbk5v")
 gm = NodePath("..")
 sm = NodePath("StateMachine")
 flipcd = NodePath("FlipCooldown")
 guntimer = NodePath("GunTimer")
-camcom = NodePath("CameraController")
-as3d = NodePath("CameraController/AnimatedSprite3D")
 projectile_speed = 100
 time_between_shots = 0.1
 
-<<<<<<< Updated upstream
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, 0.67, -0.557)
 texture_filter = 0
@@ -169,8 +166,6 @@ animation = &"Firing"
 autoplay = "Idle"
 frame_progress = 0.917869
 
-=======
->>>>>>> Stashed changes
 [node name="GunTimer" type="Timer" parent="Player"]
 wait_time = 0.05
 one_shot = true
@@ -195,13 +190,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671399, -0.1)
 [node name="Camera3D" type="Camera3D" parent="Player/CameraController"]
 current = true
 fov = 85.0
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player/CameraController"]
-transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, -0.00139892, -0.457)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_cwurv")
-animation = &"Firing"
-autoplay = "Idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hcwif")
