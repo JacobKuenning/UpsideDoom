@@ -286,7 +286,6 @@ as3D = NodePath("CameraController/AnimatedSprite3D")
 camcom = NodePath("CameraController")
 mouse_sens = 100
 projectile_speed = 100
-time_between_shots = 0.15
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.640679, 0.966354, 1)

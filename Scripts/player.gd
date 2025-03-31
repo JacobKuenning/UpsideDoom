@@ -12,6 +12,7 @@ var projectile = preload("res://Scenes/player_projectile.tscn")
 var flipped = false
 var moving = false
 var can_shoot = true
+var shooting = false
 
 @export var SPEED = 15
 @export var ACCEL = 2
@@ -40,9 +41,16 @@ func _physics_process(delta):
 	
 func _input(event: InputEvent): #handle mouse motion and other button inputs
 	if event.is_action_pressed("shoot") and can_shoot:
+		shooting = true
 		fire_weapon()
+	
+	if event.is_action_released("shoot"):
+		shooting = false
+		guntimer.start()
 		
 func fire_weapon():
+	print("fire weapon")
+	guntimer.start()
 	audio_player.pitch_scale = randf_range(.5, 1.5)
 	audio_player.play()
 	as3D.play(&"Firing")
@@ -56,7 +64,6 @@ func fire_weapon():
 
 	new_proj.rotation.y = rotation.y
 	new_proj.speed = projectile_speed
-	guntimer.start()
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
@@ -64,12 +71,14 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	player_hit_audio.play()
 	player_hit.play("default")
 	GameManager.game_manager.decrement_health()
-	area.get_parent().queue_free() #destroy bullets that touch you
+	if area.get_parent().name != "ExitArea":
+		area.get_parent().queue_free() #destroy bullets that touch you
 	pass # Replace with function body.
 
 
 func _on_gun_timer_timeout() -> void:
 	as3D.play(&"Idle")
 	can_shoot = true
-	print("timer")
+	if shooting:
+		fire_weapon()
 	pass # Replace with function body.
