@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://y6a2v77jhlfc"]
+
+[ext_resource type="Texture2D" uid="uid://cq4u1t31sy2g1" path="res://Sprites/Spark.png" id="1_l23i4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejtfv"]
+atlas = ExtResource("1_l23i4")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amcvx"]
+atlas = ExtResource("1_l23i4")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lddtf"]
+atlas = ExtResource("1_l23i4")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ovwh"]
+atlas = ExtResource("1_l23i4")
+region = Rect2(1440, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2ql8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejtfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amcvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lddtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ovwh")
+}],
+"loop": false,
+"name": &"Spark",
+"speed": 15.0
+}]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_c2ql8")
+animation = &"Spark"
+autoplay = "Spark"
+frame = 3
+frame_progress = 1.0
