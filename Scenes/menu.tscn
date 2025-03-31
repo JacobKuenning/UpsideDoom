@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6bed8allijpp"]
+[gd_scene load_steps=7 format=3 uid="uid://c6bed8allijpp"]
 
 [ext_resource type="Texture2D" uid="uid://cht0p1aml36co" path="res://Assets/UI/Upside_Doom_Main_Screen.png" id="1_ouk20"]
-[ext_resource type="Script" uid="uid://bt3qq17o8lql2" path="res://Scripts/menu.gd" id="1_wwsa2"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_wwsa2"]
 [ext_resource type="Texture2D" uid="uid://bse3v23kweiwr" path="res://Assets/UI/Inverxion studios.png" id="2_mae5d"]
-[ext_resource type="Script" uid="uid://8k2ro730vwon" path="res://Scenes/start_button.gd" id="3_158mb"]
-[ext_resource type="Script" uid="uid://br71djwjluxry" path="res://Scenes/exit_button.gd" id="3_cayip"]
+[ext_resource type="Script" path="res://Scenes/start_button.gd" id="3_158mb"]
+[ext_resource type="Script" path="res://Scenes/exit_button.gd" id="3_cayip"]
+[ext_resource type="Script" uid="uid://bac030jmw13la" path="res://Scenes/info_button.gd" id="5_jsrd8"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -48,6 +49,7 @@ script = ExtResource("3_158mb")
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Info"
+script = ExtResource("5_jsrd8")
 
 [node name="Exit_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -56,4 +58,5 @@ text = "Exit"
 script = ExtResource("3_cayip")
 
 [connection signal="button_down" from="VBoxContainer/Start_Button" to="VBoxContainer/Start_Button" method="_on_button_down"]
+[connection signal="button_down" from="VBoxContainer/Info_Button" to="VBoxContainer/Info_Button" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/Exit_Button" to="VBoxContainer/Exit_Button" method="_on_button_down"]
