@@ -126,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tgy6u")
 }],
-"loop": true,
+"loop": false,
 "name": &"Firing",
 "speed": 60.0
 }, {
@@ -148,23 +148,16 @@ environment = SubResource("Environment_ebmjs")
 
 [node name="Projectiles" type="Node3D" parent="."]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd", "guntimer")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd", "guntimer", "as3D", "camcom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_rbk5v")
 gm = NodePath("..")
 sm = NodePath("StateMachine")
 flipcd = NodePath("FlipCooldown")
 guntimer = NodePath("GunTimer")
+as3D = NodePath("CameraController/AnimatedSprite3D")
+camcom = NodePath("CameraController")
 projectile_speed = 100
-time_between_shots = 0.1
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
-transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, 0.67, -0.557)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_cwurv")
-animation = &"Firing"
-autoplay = "Idle"
-frame_progress = 0.917869
 
 [node name="GunTimer" type="Timer" parent="Player"]
 wait_time = 0.05
@@ -190,6 +183,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671399, -0.1)
 [node name="Camera3D" type="Camera3D" parent="Player/CameraController"]
 current = true
 fov = 85.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player/CameraController"]
+transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, -0.00139892, -0.457)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_cwurv")
+animation = &"Firing"
+autoplay = "Idle"
+frame_progress = 0.917869
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hcwif")
@@ -228,10 +229,6 @@ material_override = ExtResource("9_ldgsr")
 
 [node name="Room_01" parent="." instance=ExtResource("8_v158k")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.23018, 0, -2.19097)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03159, 19.4287)
-light_color = Color(1, 0, 1, 1)
 
 [connection signal="timeout" from="Player/GunTimer" to="Player" method="_on_gun_timer_timeout"]
 [connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Normal" method="_on_flip_cooldown_timeout"]

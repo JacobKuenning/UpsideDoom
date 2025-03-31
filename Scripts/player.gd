@@ -4,6 +4,8 @@ var projectile = preload("res://Scenes/player_projectile.tscn")
 @export var sm : Node
 @export var flipcd : Timer
 @export var guntimer : Timer
+@export var as3D : AnimatedSprite3D
+@export var camcom : Node3D
 var flipped = false
 var moving = false
 var can_shoot = true
@@ -38,10 +40,15 @@ func _input(event: InputEvent): #handle mouse motion and other button inputs
 		fire_weapon()
 		
 func fire_weapon():
+	as3D.play(&"Firing")
 	can_shoot = false
 	var new_proj = projectile.instantiate()
 	gm.projectiles.add_child(new_proj)
-	new_proj.position = position
+	if !GameManager.flipped:
+		new_proj.position = Vector3(camcom.global_position.x, camcom.global_position.y - 0.3, camcom.global_position.z)
+	else:
+		new_proj.position = Vector3(camcom.global_position.x, camcom.global_position.y + 0.3, camcom.global_position.z)
+
 	new_proj.rotation.y = rotation.y
 	new_proj.speed = projectile_speed
 	guntimer.start()
@@ -54,6 +61,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 
 func _on_gun_timer_timeout() -> void:
+	as3D.play(&"Idle")
 	can_shoot = true
 	print("timer")
 	pass # Replace with function body.
