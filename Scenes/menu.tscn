@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://c6bed8allijpp"]
+[gd_scene load_steps=3 format=3 uid="uid://c6bed8allijpp"]
+
+[ext_resource type="Texture2D" uid="uid://cht0p1aml36co" path="res://Assets/UI/Upside_Doom_Main_Screen.png" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://bse3v23kweiwr" path="res://Assets/UI/Inverxion studios.png" id="2_mae5d"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -20,6 +23,19 @@ offset_top = -50.5
 offset_bottom = 50.5
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UpsideDoomMainScreen" type="Sprite2D" parent="VBoxContainer/Panel"]
+position = Vector2(-914, 48.5)
+scale = Vector2(1.01667, 1.03333)
+texture = ExtResource("1_ouk20")
+
+[node name="InverxionStudios" type="Sprite2D" parent="VBoxContainer/Panel"]
+position = Vector2(-1590, 482.5)
+scale = Vector2(0.539062, 0.539062)
+texture = ExtResource("2_mae5d")
 
 [node name="Start_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
