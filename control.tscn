@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://fpscivexojsn"]
+
+[ext_resource type="Texture2D" uid="uid://b3rgkmilbxs20" path="res://Assets/UI/Upside doom_ded.png" id="1_0fbet"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.2
+offset_right = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 46.0
+
+[node name="UpsideDoomMainScreen" type="Sprite2D" parent="Panel"]
+position = Vector2(192, 105.5)
+scale = Vector2(0.2, 0.19537)
+texture = ExtResource("1_0fbet")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 235.8
+offset_top = 115.0
+offset_right = 281.8
+offset_bottom = 220.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Retry_Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="Cry_Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Cry to Momma"
