@@ -42,4 +42,9 @@ func open_next_room():
 	exit_area.active = true
 	door.open_door()
 	pass
-	
+
+func scene_swap(scene):
+	call_deferred("real_swap", scene)
+
+func real_swap(scene):
+	get_tree().change_scene_to_file(scene)
