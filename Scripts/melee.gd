@@ -11,7 +11,7 @@ var id = 1
 
 var starting_y
 
-var health = 5
+@export var health = 5
 
 var distance_to_player
 

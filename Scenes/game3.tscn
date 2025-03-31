@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://48vj6ooqnnct"]
+[gd_scene load_steps=14 format=3 uid="uid://dlqqlnsijtnw0"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_svqiw"]
 [ext_resource type="AudioStream" uid="uid://b47fcv6u4y1w8" path="res://Assets/SFX/UpsideDoomMainTheme.mp3" id="2_o4lua"]
@@ -29,6 +29,7 @@ door = NodePath("Door")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o4lua")
+parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ebmjs")

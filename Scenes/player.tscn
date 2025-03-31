@@ -286,6 +286,7 @@ as3D = NodePath("CameraController/AnimatedSprite3D")
 camcom = NodePath("CameraController")
 mouse_sens = 100
 projectile_speed = 100
+time_between_shots = 0.15
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.640679, 0.966354, 1)
@@ -307,7 +308,7 @@ offset_right = 112.0
 offset_bottom = 25.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_8erm5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f1ek2")
-max_value = 25.0
+max_value = 35.0
 value = 25.0
 show_percentage = false
 script = ExtResource("2_3smsa")
@@ -368,6 +369,7 @@ shape = SubResource("CapsuleShape3D_hcwif")
 one_shot = true
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.646407, 0, 0, 0, 1, 0, 0, 0, 0.646407, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_ldgsr")

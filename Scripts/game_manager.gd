@@ -12,6 +12,7 @@ extends Node3D
 var player_health = 4
 
 func _ready():
+	GameManager.player_health = 35
 	audio_player.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	

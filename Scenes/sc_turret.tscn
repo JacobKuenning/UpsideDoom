@@ -189,6 +189,7 @@ as3d = NodePath("AnimatedSprite3D")
 player_tracker = NodePath("PlayerTracker")
 rotation_speed = 0.02
 bullet_speed = 20
+health = 4
 
 [node name="PlayerTracker" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01808, 0)

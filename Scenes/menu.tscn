@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6bed8allijpp"]
+[gd_scene load_steps=10 format=3 uid="uid://c6bed8allijpp"]
 
 [ext_resource type="Texture2D" uid="uid://cht0p1aml36co" path="res://Assets/UI/Upside_Doom_Main_Screen.png" id="1_ouk20"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_wwsa2"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Scenes/start_button.gd" id="3_158mb"]
 [ext_resource type="Script" path="res://Scenes/exit_button.gd" id="3_cayip"]
 [ext_resource type="Script" uid="uid://bac030jmw13la" path="res://Scenes/info_button.gd" id="5_jsrd8"]
+[ext_resource type="AudioStream" uid="uid://b47fcv6u4y1w8" path="res://Assets/SFX/UpsideDoomMainTheme.mp3" id="7_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://bnr0joog4205d" path="res://Scripts/wordart_2.png" id="8_6swd7"]
+[ext_resource type="Texture2D" uid="uid://orjp7ed4pw71" path="res://Scripts/wordart_1.png" id="9_7qvly"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -56,6 +59,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Exit"
 script = ExtResource("3_cayip")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wbdvm")
+autoplay = true
+parameters/looping = true
+
+[node name="Wordart2" type="Sprite2D" parent="."]
+position = Vector2(1065, 480)
+scale = Vector2(0.303213, 0.303213)
+texture = ExtResource("8_6swd7")
+
+[node name="Wordart1" type="Sprite2D" parent="."]
+position = Vector2(460, 495)
+scale = Vector2(0.375346, 0.375346)
+texture = ExtResource("9_7qvly")
 
 [connection signal="button_down" from="VBoxContainer/Start_Button" to="VBoxContainer/Start_Button" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/Info_Button" to="VBoxContainer/Info_Button" method="_on_button_down"]
