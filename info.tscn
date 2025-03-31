@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b28wmdsf2qmbe"]
+[gd_scene load_steps=3 format=3 uid="uid://rgvh610tanmt"]
 
 [ext_resource type="Texture2D" uid="uid://crg7n8mwqo287" path="res://Assets/UI/INFO_sCREEN.png" id="1_ohlig"]
 [ext_resource type="Script" uid="uid://cxo6l01yfyq12" path="res://retry_button.gd" id="2_apbm5"]
