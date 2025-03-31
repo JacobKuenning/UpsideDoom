@@ -2,8 +2,7 @@ extends RigidBody3D
 @export var speed = 40
 
 func _ready():
-	await get_tree().create_timer(30)
-	queue_free()
+	pass
 
 func _physics_process(delta):
 	move_and_collide(-transform.basis.z * delta * speed)
