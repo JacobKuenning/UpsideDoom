@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvnax4s7xoi3k"]
+
+[ext_resource type="Texture2D" uid="uid://d2txquwcn7438" path="res://Sprites/Doors.png" id="1_38ogf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw28t"]
+atlas = ExtResource("1_38ogf")
+region = Rect2(0, 0, 315, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mbvs"]
+atlas = ExtResource("1_38ogf")
+region = Rect2(315, 0, 315, 408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fk65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw28t")
+}],
+"loop": true,
+"name": &"Locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mbvs")
+}],
+"loop": true,
+"name": &"Unlocked",
+"speed": 5.0
+}]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67883, 0, 0)
+sprite_frames = SubResource("SpriteFrames_1fk65")
+animation = &"Locked"
+autoplay = "Locked"
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1fk65")
+animation = &"Locked"
+autoplay = "Locked"
