@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dkmms6ee41kve"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://b2403mu4p01c7" path="res://Scenes/player.tscn" id="2_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://ceyoeys6sbsom" path="res://Scenes/player.tscn" id="2_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://dyxouprsboiky" path="res://Scenes/melee.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="7_1l0tm"]
 [ext_resource type="Script" uid="uid://cit7wnsgmyun3" path="res://Scripts/enemies_ceiling.gd" id="7_ldgsr"]
@@ -28,16 +28,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="Melee" parent="Enemies" instance=ExtResource("6_i6g32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.597, 5.70267)
-speed = 6
-
 [node name="sc_Turret" parent="Enemies" instance=ExtResource("7_1l0tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.38149)
 
 [node name="Smart" parent="Enemies" instance=ExtResource("8_o5yvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.7293)
-walk_speed = 0.1
 
 [node name="Spin" parent="Enemies" instance=ExtResource("9_rku1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3792, 0, -6.9241)
@@ -51,7 +46,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="Smart" parent="EnemiesCeiling" instance=ExtResource("8_o5yvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.04929, 2.8117)
-walk_speed = 0.1
+
+[node name="Spin" parent="EnemiesCeiling" instance=ExtResource("9_rku1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.02439, 5.68981)
+
+[node name="Melee" parent="EnemiesCeiling" instance=ExtResource("6_i6g32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3494, -12.5222)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(51.1132, 0, 0, 0, 1, 0, 0, 0, 49.0833, 0, -0.515651, -3.23303)

@@ -9,6 +9,7 @@ var flipped = false
 var id = 2
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
+var shoot_pos = 1
 
 func _ready():
 	timer.wait_time = spin_rate
@@ -45,6 +46,6 @@ func shoot():
 	for n in 4:
 		var new_proj = projectile.instantiate()
 		GameManager.projectiles.add_child(new_proj)
-		new_proj.position = global_position
+		new_proj.position = Vector3(global_position.x, global_position.y + shoot_pos, global_position.z)
 		new_proj.rotation = Vector3(global_rotation.x, global_rotation.y + deg_to_rad(90) * n, global_rotation.z)
 		new_proj.speed = projectile_speed
