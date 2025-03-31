@@ -5,37 +5,34 @@
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.2
+anchor_bottom = 0.2
+offset_right = 1536.0
+offset_bottom = 864.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_right = 46.0
+
+[node name="UpsideDoomMainScreen" type="Sprite2D" parent="Panel"]
+position = Vector2(960, 527.5)
+scale = Vector2(1, 0.976852)
+texture = ExtResource("1_ouk20")
+
+[node name="InverxionStudios" type="Sprite2D" parent="Panel"]
+position = Vector2(310, 860)
+scale = Vector2(0.601562, 0.611328)
+texture = ExtResource("2_mae5d")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -50.5
-offset_bottom = 50.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="UpsideDoomMainScreen" type="Sprite2D" parent="VBoxContainer/Panel"]
-position = Vector2(-914, 48.5)
-scale = Vector2(1.01667, 1.03333)
-texture = ExtResource("1_ouk20")
-
-[node name="InverxionStudios" type="Sprite2D" parent="VBoxContainer/Panel"]
-position = Vector2(-1590, 482.5)
-scale = Vector2(0.539062, 0.539062)
-texture = ExtResource("2_mae5d")
+offset_left = 1620.0
+offset_top = 495.0
+offset_right = 1666.0
+offset_bottom = 600.0
 
 [node name="Start_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
