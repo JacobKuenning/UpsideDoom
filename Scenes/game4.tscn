@@ -1,0 +1,147 @@
+[gd_scene load_steps=17 format=3 uid="uid://crotlsrx2513f"]
+
+[ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_rroi0"]
+[ext_resource type="AudioStream" uid="uid://b47fcv6u4y1w8" path="res://Assets/SFX/UpsideDoomMainTheme.mp3" id="2_41qsy"]
+[ext_resource type="PackedScene" uid="uid://ceyoeys6sbsom" path="res://Scenes/player.tscn" id="3_gwu1e"]
+[ext_resource type="PackedScene" uid="uid://bbh82brri5ct0" path="res://Scenes/spin.tscn" id="4_0ghwy"]
+[ext_resource type="PackedScene" uid="uid://dyxouprsboiky" path="res://Scenes/melee.tscn" id="5_0ghwy"]
+[ext_resource type="Script" uid="uid://cit7wnsgmyun3" path="res://Scripts/enemies_ceiling.gd" id="5_0sfbu"]
+[ext_resource type="PackedScene" uid="uid://bvnax4s7xoi3k" path="res://Scenes/Door.tscn" id="6_lx6i8"]
+[ext_resource type="PackedScene" uid="uid://io2i8dovp4jg" path="res://Scenes/smart.tscn" id="7_0sfbu"]
+[ext_resource type="Script" uid="uid://1n5v23on0mfg" path="res://Scenes/exit_area.gd" id="7_hgfhu"]
+[ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="8_lx6i8"]
+[ext_resource type="Material" uid="uid://dsuop6xvq52tj" path="res://Assets/Materials/StoneFloor.tres" id="8_xcnvw"]
+[ext_resource type="Material" uid="uid://502o1syp8sdj" path="res://Assets/Materials/Tiles.tres" id="9_rux8x"]
+[ext_resource type="PackedScene" uid="uid://b250nn0f7p327" path="res://Assets/Rooms/Room_01.glb" id="10_3yf12"]
+
+[sub_resource type="Environment" id="Environment_ebmjs"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1phco"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rku1e"]
+size = Vector3(5.89844, 4.55957, 1.63782)
+
+[node name="Game" type="Node3D" node_paths=PackedStringArray("enemies", "enemies_ceil", "exit_area", "door")]
+script = ExtResource("1_rroi0")
+enemies = NodePath("Enemies")
+enemies_ceil = NodePath("EnemiesCeiling")
+exit_area = NodePath("ExitArea")
+door = NodePath("Door")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_41qsy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ebmjs")
+
+[node name="Projectiles" type="Node3D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_gwu1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 16.1391)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Spin" parent="Enemies" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16)
+
+[node name="Spin2" parent="Enemies" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
+
+[node name="Spin3" parent="Enemies" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -16)
+
+[node name="Spin4" parent="Enemies" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+
+[node name="Melee" parent="Enemies" instance=ExtResource("5_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6606, 1.16644, -6.01703)
+
+[node name="Melee2" parent="Enemies" instance=ExtResource("5_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.661, 1.166, -6.017)
+
+[node name="Melee3" parent="Enemies" instance=ExtResource("5_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6606, 1.16644, -10.9473)
+
+[node name="Melee4" parent="Enemies" instance=ExtResource("5_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.661, 1.166, -10.9473)
+
+[node name="EnemiesCeiling" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.62314, 0)
+script = ExtResource("5_0sfbu")
+
+[node name="Spin" parent="EnemiesCeiling" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6.08559, -16)
+
+[node name="Spin2" parent="EnemiesCeiling" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6.08559, 16)
+
+[node name="Spin3" parent="EnemiesCeiling" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.08559, -16)
+
+[node name="Spin4" parent="EnemiesCeiling" instance=ExtResource("4_0ghwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.08559, 16)
+
+[node name="Smart" parent="EnemiesCeiling" instance=ExtResource("7_0sfbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 6.098, -6)
+
+[node name="Smart2" parent="EnemiesCeiling" instance=ExtResource("7_0sfbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 6.098, -6)
+
+[node name="Smart3" parent="EnemiesCeiling" instance=ExtResource("7_0sfbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 6.098, -11.1625)
+
+[node name="Smart4" parent="EnemiesCeiling" instance=ExtResource("7_0sfbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 6.098, -11.1625)
+
+[node name="sc_Turret" parent="EnemiesCeiling" instance=ExtResource("8_lx6i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0678, 6.05751, -19.4149)
+
+[node name="sc_Turret2" parent="EnemiesCeiling" instance=ExtResource("8_lx6i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.068, 6.05795, -19.415)
+
+[node name="Door" parent="." instance=ExtResource("6_lx6i8")]
+transform = Transform3D(0.845779, 0, 0, 0, 0.938354, 0, 0, 0, 1, -1.34796, 1.62968, -22.5471)
+
+[node name="ExitArea" type="Node3D" parent="."]
+transform = Transform3D(6.79, 0, 0, 0, 6.79, 0, 0, 0, 6.79, 0, 0, -24.6148)
+script = ExtResource("7_hgfhu")
+next_scene = "res://Scenes/game4.tscn"
+
+[node name="Area3D" type="Area3D" parent="ExitArea"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea/Area3D"]
+shape = SubResource("BoxShape3D_1phco")
+
+[node name="Node3D2" parent="." instance=ExtResource("6_lx6i8")]
+transform = Transform3D(0.845779, 0, 0, 0, 0.938354, 0, 0, 0, 1, -1.34796, 1.62968, 18.2829)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(51.1132, 0, 0, 0, 1, 0, 0, 0, 49.0833, 0, -0.515651, -3.23303)
+material_override = ExtResource("8_xcnvw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(48.8442, 0, 0, 0, 0.0249664, 0, 0, 0, 50.7657, 0, 6, -2.953)
+material_override = ExtResource("9_rux8x")
+
+[node name="Room_01" parent="." instance=ExtResource("10_3yf12")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.23018, 0, -2.19097)
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.5072)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266272, 1.77923, 0.327044)
+shape = SubResource("BoxShape3D_rku1e")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.9009)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266272, 1.77923, 0.162592)
+shape = SubResource("BoxShape3D_rku1e")
+
+[connection signal="area_entered" from="ExitArea/Area3D" to="ExitArea" method="_on_area_3d_area_entered"]
