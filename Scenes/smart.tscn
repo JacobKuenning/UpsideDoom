@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://io2i8dovp4jg"]
+[gd_scene load_steps=29 format=3 uid="uid://io2i8dovp4jg"]
 
 [ext_resource type="Script" uid="uid://b4wabqp5wtbro" path="res://Scripts/smart.gd" id="1_4uk5l"]
 [ext_resource type="Script" uid="uid://dowcx8f8ev67q" path="res://Scripts/player_tracker.gd" id="2_oms67"]
@@ -172,6 +172,8 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kd2gx"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4uk5l"]
+
 [node name="Smart" type="Node3D" node_paths=PackedStringArray("sm", "as3d", "player_tracker")]
 script = ExtResource("1_4uk5l")
 sm = NodePath("StateMachine")
@@ -220,6 +222,14 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1.14, 0, 0, 0, 1.14, 0, 0, 0, 1.14, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_kd2gx")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17251, 0)
+shape = SubResource("CapsuleShape3D_4uk5l")
 
 [connection signal="timeout" from="StateMachine/ShootState/Timer" to="StateMachine/ShootState" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

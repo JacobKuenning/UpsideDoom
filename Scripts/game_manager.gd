@@ -6,6 +6,8 @@ extends Node3D
 @onready var vfx = get_node("/root/Game/VFX")
 @export var enemies : Node3D
 @export var enemies_ceil : Node3D
+@export var exit_area : Node3D
+@export var door : Node3D
 
 var player_health = 4
 
@@ -36,6 +38,7 @@ func decrement_enemy_count():
 		open_next_room()
 	
 func open_next_room():
-	print("all enemies killed")
+	exit_area.active = true
+	door.open_door()
 	pass
 	

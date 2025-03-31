@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvnax4s7xoi3k"]
+[gd_scene load_steps=6 format=3 uid="uid://bvnax4s7xoi3k"]
 
 [ext_resource type="Texture2D" uid="uid://d2txquwcn7438" path="res://Sprites/Doors.png" id="1_38ogf"]
+[ext_resource type="Script" uid="uid://73ou27iib6e8" path="res://Scenes/door.gd" id="1_mw28t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mw28t"]
 atlas = ExtResource("1_38ogf")
@@ -30,6 +31,7 @@ animations = [{
 }]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_mw28t")
 
 [node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67883, 0, 0)
