@@ -1,5 +1,7 @@
 extends CharacterBody3D
 var projectile = preload("res://Scenes/player_projectile.tscn")
+@onready var audio_player: AudioStreamPlayer3D = $AudioPlayer
+
 @onready var gm = get_node("/root/GameManager")
 @export var sm : Node
 @export var flipcd : Timer
@@ -40,6 +42,8 @@ func _input(event: InputEvent): #handle mouse motion and other button inputs
 		fire_weapon()
 		
 func fire_weapon():
+	audio_player.pitch_scale = randf_range(.5, 1.5)
+	audio_player.play()
 	as3D.play(&"Firing")
 	can_shoot = false
 	var new_proj = projectile.instantiate()
