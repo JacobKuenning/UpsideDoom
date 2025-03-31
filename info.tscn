@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://b28wmdsf2qmbe"]
+
+[ext_resource type="Texture2D" uid="uid://crg7n8mwqo287" path="res://Assets/UI/INFO_sCREEN.png" id="1_ohlig"]
+[ext_resource type="Script" uid="uid://cxo6l01yfyq12" path="res://retry_button.gd" id="2_apbm5"]
+
+[node name="Info" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 46.0
+
+[node name="UpsideDoomMainScreen" type="Sprite2D" parent="Panel"]
+position = Vector2(191.815, 107.35)
+scale = Vector2(0.198765, 0.193796)
+texture = ExtResource("1_ohlig")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = 145.0
+offset_right = 378.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.556355, 0.520123)
+
+[node name="Back_Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+script = ExtResource("2_apbm5")
+
+[connection signal="button_down" from="Panel/VBoxContainer/Back_Button" to="Panel/VBoxContainer/Back_Button" method="_on_button_down"]
