@@ -40,7 +40,7 @@ _subresources={
 },
 "walls": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Materials/walls.tres"
+"use_external/path": "uid://cm83py8mn2qd2"
 }
 },
 "nodes": {
