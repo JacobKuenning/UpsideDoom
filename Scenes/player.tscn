@@ -1,13 +1,17 @@
-[gd_scene load_steps=30 format=3 uid="uid://ceyoeys6sbsom"]
+[gd_scene load_steps=53 format=3 uid="uid://ceyoeys6sbsom"]
 
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Script" uid="uid://sp2k3dk04e77" path="res://Scenes/health_bar.gd" id="2_3smsa"]
 [ext_resource type="AudioStream" uid="uid://1hhhejl78ma1" path="res://Assets/SFX/Shotgun_01.wav" id="2_8erm5"]
+[ext_resource type="AudioStream" uid="uid://ke7f7cal44b8" path="res://Assets/SFX/PlayerHit.wav" id="2_pu2lt"]
 [ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="2_x3wgy"]
 [ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="3_3smsa"]
 [ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="4_8erm5"]
 [ext_resource type="Texture2D" uid="uid://w8tueoxskjr8" path="res://Sprites/GunSprites/GunSpriteSheet.png" id="5_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://gwn2utao058q" path="res://Sprites/Healthbar.png" id="7_3smsa"]
+[ext_resource type="Texture2D" uid="uid://bf2th7it5rrhw" path="res://Sprites/PlayerHit.png" id="7_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://mm812kyq0dya" path="res://Sprites/GunSprites/Idle.png" id="8_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://bjaapfry382kw" path="res://Sprites/Player_hit.png" id="8_gymyn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8erm5"]
 
@@ -16,6 +20,133 @@ bg_color = Color(0.277288, 0.711627, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3smsa"]
 bg_color = Color(0, 0.634353, 0.961337, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(3360, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(2880, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(2400, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(1920, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(1440, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(960, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(480, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(0, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(3360, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(2880, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(2400, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(1920, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(1440, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(960, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(480, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
+atlas = ExtResource("7_tx1dd")
+region = Rect2(0, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
+atlas = ExtResource("8_gymyn")
+region = Rect2(0, 0, 480, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfarp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olqyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpjfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ijsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1odr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gysh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfarp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 60.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1phco"]
 atlas = ExtResource("5_f1ek2")
@@ -77,6 +208,10 @@ region = Rect2(1440, 540, 480, 270)
 atlas = ExtResource("5_f1ek2")
 region = Rect2(1920, 540, 480, 270)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("8_f1ek2")
+region = Rect2(0, 0, 480, 270)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cwurv"]
 animations = [{
 "frames": [{
@@ -129,7 +264,10 @@ animations = [{
 "name": &"Firing",
 "speed": 60.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
@@ -148,15 +286,18 @@ as3D = NodePath("CameraController/AnimatedSprite3D")
 camcom = NodePath("CameraController")
 projectile_speed = 100
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.640679, 0.966354, 1)
+light_energy = 2.556
+
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[node name="PlayerHit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_pu2lt")
 
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_8erm5")
 max_db = -2.103
-
-[node name="OmniLight3D" type="OmniLight3D" parent="AudioPlayer"]
-light_color = Color(0, 0.640679, 0.966354, 1)
-light_energy = 2.556
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = 12.0
@@ -205,13 +346,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671399, -0.1)
 current = true
 fov = 85.0
 
+[node name="PlayerHit" type="AnimatedSprite3D" parent="CameraController"]
+transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, -0.00139892, -0.369255)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_vfarp")
+frame = 16
+frame_progress = 1.0
+
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CameraController"]
 transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, -0.00139892, -0.457)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_cwurv")
-animation = &"Firing"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.917869
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_hcwif")

@@ -1,7 +1,8 @@
 extends CharacterBody3D
 var projectile = preload("res://Scenes/player_projectile.tscn")
 @onready var audio_player: AudioStreamPlayer3D = $AudioPlayer
-
+@onready var player_hit: AnimatedSprite3D = $CameraController/PlayerHit
+@onready var player_hit_audio: AudioStreamPlayer3D = $PlayerHit
 @onready var gm = get_node("/root/GameManager")
 @export var sm : Node
 @export var flipcd : Timer
@@ -59,6 +60,9 @@ func fire_weapon():
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	player_hit_audio.pitch_scale = randf_range(.8, 1.2)
+	player_hit_audio.play()
+	player_hit.play("default")
 	GameManager.game_manager.decrement_health()
 	area.get_parent().queue_free() #destroy bullets that touch you
 	pass # Replace with function body.
