@@ -1,10 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2403mu4p01c7"]
+[gd_scene load_steps=27 format=3 uid="uid://ceyoeys6sbsom"]
 
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_fkybt"]
+[ext_resource type="Script" uid="uid://sp2k3dk04e77" path="res://Scenes/health_bar.gd" id="2_3smsa"]
 [ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="2_x3wgy"]
 [ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="3_3smsa"]
 [ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="4_8erm5"]
 [ext_resource type="Texture2D" uid="uid://w8tueoxskjr8" path="res://Sprites/GunSprites/GunSpriteSheet.png" id="5_f1ek2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8erm5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1ek2"]
+bg_color = Color(0.277288, 0.711627, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1phco"]
 atlas = ExtResource("5_f1ek2")
@@ -136,6 +142,15 @@ guntimer = NodePath("GunTimer")
 as3D = NodePath("CameraController/AnimatedSprite3D")
 camcom = NodePath("CameraController")
 projectile_speed = 100
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_right = 100.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_8erm5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f1ek2")
+value = 60.0
+show_percentage = false
+script = ExtResource("2_3smsa")
 
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.05
