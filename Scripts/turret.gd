@@ -7,6 +7,9 @@ extends Node3D
 @export var health = 5
 @export var spread = 0.1
 
+var spark = preload("res://Scenes/Spark.tscn")
+var explosion = preload("res://Scenes/Explosion.tscn")
+
 func _ready():
 	player_tracker.projectile_speed = bullet_speed
 	player_tracker.spread = spread
@@ -20,6 +23,20 @@ func _ready():
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	health -= 1
 	if health == 0:
-		queue_free()
+		die()
+	else:
+		hit()
 	area.get_parent().queue_free()
 	pass # Replace with function body.
+	
+func die():
+	var vfx = explosion.instantiate()
+	GameManager.vfx.add_child(vfx)
+	vfx.position = global_position
+	queue_free()
+	
+func hit():
+	var vfx = spark.instantiate()
+	GameManager.vfx.add_child(vfx)
+	vfx.position = global_position
+	pass

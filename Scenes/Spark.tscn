@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy6080p4m4t6b"]
+[gd_scene load_steps=9 format=3 uid="uid://dy6080p4m4t6b"]
 
+[ext_resource type="Script" uid="uid://b23f0nhb02xvy" path="res://Scripts/effect.gd" id="1_ejtfv"]
 [ext_resource type="Texture2D" uid="uid://882n7pxcj7a3" path="res://Sprites/VFX_Sprites/Spark.png" id="1_l23i4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejtfv"]
@@ -45,9 +46,12 @@ animations = [{
 "speed": 25.0
 }]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("as3d")]
+script = ExtResource("1_ejtfv")
+as3d = NodePath("AnimatedSprite3D")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.245, 0, 0, 0, 1.245, 0, 0, 0, 1.245, 0, 0, 0)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_ft5ng")
@@ -55,3 +59,5 @@ animation = &"Explosion"
 autoplay = "Explosion"
 frame = 4
 frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

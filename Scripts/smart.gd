@@ -9,7 +9,9 @@ extends Node3D
 @export var walk_speed = 2.0
 @export var distance_before_shooting = 10.0
 var distance_to_player
-var s
+
+var spark = preload("res://Scenes/Spark.tscn")
+var explosion = preload("res://Scenes/Explosion.tscn")
 
 func _ready():
 	player_tracker.projectile_speed = bullet_speed
@@ -28,6 +30,20 @@ func _physics_process(delta: float) -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	health -= 1
 	if health == 0:
-		queue_free()
+		die()
+	else:
+		hit()
 	area.get_parent().queue_free()
 	pass # Replace with function body.
+	
+func die():
+	var vfx = explosion.instantiate()
+	GameManager.vfx.add_child(vfx)
+	vfx.position = global_position
+	queue_free()
+	
+func hit():
+	var vfx = spark.instantiate()
+	GameManager.vfx.add_child(vfx)
+	vfx.position = global_position
+	pass

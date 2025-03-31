@@ -6,6 +6,9 @@ extends Node3D
 var projectile = preload("res://Scenes/enemy_projectile.tscn")
 @export var projectile_speed = 10.0
 
+var spark = preload("res://Scenes/Spark.tscn")
+var explosion = preload("res://Scenes/Explosion.tscn")
+
 func _ready():
 	timer.wait_time = spin_rate
 	timer.start()
@@ -14,9 +17,23 @@ func _ready():
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	health -= 1
 	if health == 0:
-		queue_free()
+		die()
+	else:
+		hit()
+	area.get_parent().queue_free()
 	pass # Replace with function body.
-
+	
+func die():
+	var vfx = explosion.instantiate()
+	GameManager.vfx.add_child(vfx)
+	vfx.position = global_position
+	queue_free()
+	
+func hit():
+	var vfx = spark.instantiate()
+	GameManager.vfx.add_child(vfx)
+	vfx.position = global_position
+	pass
 
 func _on_timer_timeout() -> void:
 	rotation.y += 45
