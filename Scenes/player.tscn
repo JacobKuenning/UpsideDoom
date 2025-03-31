@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ceyoeys6sbsom"]
+[gd_scene load_steps=29 format=3 uid="uid://ceyoeys6sbsom"]
 
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Script" uid="uid://sp2k3dk04e77" path="res://Scenes/health_bar.gd" id="2_3smsa"]
@@ -6,11 +6,15 @@
 [ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="3_3smsa"]
 [ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="4_8erm5"]
 [ext_resource type="Texture2D" uid="uid://w8tueoxskjr8" path="res://Sprites/GunSprites/GunSpriteSheet.png" id="5_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://gwn2utao058q" path="res://Sprites/Healthbar.png" id="7_3smsa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8erm5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1ek2"]
 bg_color = Color(0.277288, 0.711627, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3smsa"]
+bg_color = Color(0, 0.634353, 0.961337, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1phco"]
 atlas = ExtResource("5_f1ek2")
@@ -144,13 +148,25 @@ camcom = NodePath("CameraController")
 projectile_speed = 100
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_right = 100.0
-offset_bottom = 4.0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 112.0
+offset_bottom = 25.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_8erm5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f1ek2")
 value = 60.0
 show_percentage = false
 script = ExtResource("2_3smsa")
+
+[node name="FlipBarBlue" type="ProgressBar" parent="."]
+offset_left = 8.0
+offset_top = 33.0
+offset_right = 48.0
+offset_bottom = 38.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_8erm5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3smsa")
+max_value = 1.0
+show_percentage = false
 
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.05
@@ -195,6 +211,16 @@ one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_ldgsr")
+
+[node name="Healthbar" type="Sprite2D" parent="."]
+position = Vector2(62, 19)
+scale = Vector2(0.256944, 0.256944)
+texture = ExtResource("7_3smsa")
+
+[node name="FlipBar" type="Sprite2D" parent="."]
+position = Vector2(28, 36)
+scale = Vector2(0.100694, 0.100694)
+texture = ExtResource("7_3smsa")
 
 [connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
 [connection signal="timeout" from="FlipCooldown" to="StateMachine/Normal" method="_on_flip_cooldown_timeout"]
