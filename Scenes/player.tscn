@@ -296,9 +296,25 @@ light_energy = 2.556
 [node name="PlayerHit" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_pu2lt")
 
-[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioPlayers" type="Node3D" parent="."]
+
+[node name="AudioPlayer1" type="AudioStreamPlayer3D" parent="AudioPlayers"]
 stream = ExtResource("2_8erm5")
+volume_db = -3.0
 max_db = -2.103
+pitch_scale = 1.31
+
+[node name="AudioPlayer2" type="AudioStreamPlayer3D" parent="AudioPlayers"]
+stream = ExtResource("2_8erm5")
+volume_db = -3.0
+max_db = -2.103
+pitch_scale = 1.31
+
+[node name="AudioPlayer3" type="AudioStreamPlayer3D" parent="AudioPlayers"]
+stream = ExtResource("2_8erm5")
+volume_db = -3.0
+max_db = -2.103
+pitch_scale = 1.31
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = 12.0

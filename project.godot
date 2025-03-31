@@ -18,6 +18,7 @@ config/icon="uid://bb20haqv7cm28"
 [autoload]
 
 GameManager="*res://Scripts/GameManager.gd"
+MusicPlayer="*res://Scenes/music_player.tscn"
 
 [display]
 

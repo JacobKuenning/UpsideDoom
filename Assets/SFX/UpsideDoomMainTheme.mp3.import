@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/UpsideDoomMainTheme.mp3-2afa0a51110bbb8562760
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

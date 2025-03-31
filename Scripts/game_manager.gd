@@ -1,5 +1,4 @@
 extends Node3D
-@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @onready var projectiles = get_node("/root/Game/Projectiles")
 @onready var player = get_node("/root/Game/Player")
@@ -8,12 +7,12 @@ extends Node3D
 @export var enemies_ceil : Node3D
 @export var exit_area : Node3D
 @export var door : Node3D
+var asp
 
 var player_health = 4
 
 func _ready():
 	GameManager.player_health = 35
-	audio_player.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	for n in enemies.get_children():

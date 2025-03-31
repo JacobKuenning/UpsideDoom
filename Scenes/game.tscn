@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkmms6ee41kve"]
+[gd_scene load_steps=14 format=3 uid="uid://dkmms6ee41kve"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://ceyoeys6sbsom" path="res://Scenes/player.tscn" id="2_h4fw4"]
-[ext_resource type="AudioStream" uid="uid://b47fcv6u4y1w8" path="res://Assets/SFX/UpsideDoomMainTheme.mp3" id="2_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="7_1l0tm"]
 [ext_resource type="Script" uid="uid://cit7wnsgmyun3" path="res://Scripts/enemies_ceiling.gd" id="7_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://bvnax4s7xoi3k" path="res://Scenes/Door.tscn" id="7_rku1e"]
@@ -27,10 +26,6 @@ enemies = NodePath("Enemies")
 enemies_ceil = NodePath("EnemiesCeiling")
 exit_area = NodePath("ExitArea")
 door = NodePath("Door")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_o5yvi")
-parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ebmjs")
