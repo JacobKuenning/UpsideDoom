@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bac030jmw13la" path="res://Scenes/info_button.gd" id="5_jsrd8"]
 [ext_resource type="AudioStream" uid="uid://b47fcv6u4y1w8" path="res://Assets/SFX/UpsideDoomMainTheme.mp3" id="7_wbdvm"]
 [ext_resource type="Texture2D" uid="uid://bnr0joog4205d" path="res://Scripts/wordart_2.png" id="8_6swd7"]
-[ext_resource type="Texture2D" uid="uid://orjp7ed4pw71" path="res://Scripts/wordart_1.png" id="9_7qvly"]
+[ext_resource type="Texture2D" uid="uid://b32o0ig5ryb75" path="res://FIXED.png" id="9_6swd7"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -70,10 +70,10 @@ position = Vector2(1065, 480)
 scale = Vector2(0.303213, 0.303213)
 texture = ExtResource("8_6swd7")
 
-[node name="Wordart1" type="Sprite2D" parent="."]
-position = Vector2(460, 495)
-scale = Vector2(0.375346, 0.375346)
-texture = ExtResource("9_7qvly")
+[node name="Fixed" type="Sprite2D" parent="."]
+position = Vector2(450, 490)
+scale = Vector2(0.293674, 0.312001)
+texture = ExtResource("9_6swd7")
 
 [connection signal="button_down" from="VBoxContainer/Start_Button" to="VBoxContainer/Start_Button" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/Info_Button" to="VBoxContainer/Info_Button" method="_on_button_down"]

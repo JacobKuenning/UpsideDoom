@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpa5l18hetbxh"]
 
 [ext_resource type="Texture2D" uid="uid://ct3d11wk53yhc" path="res://Assets/UI/UPSIDE_DOOM_WIN.png" id="1_hgi8f"]
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_tmki8"]
+[ext_resource type="Script" uid="uid://bt3qq17o8lql2" path="res://Scripts/menu.gd" id="1_tmki8"]
 [ext_resource type="Script" uid="uid://cxo6l01yfyq12" path="res://retry_button.gd" id="2_tmki8"]
 
 [node name="WIN" type="Control"]
