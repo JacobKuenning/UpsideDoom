@@ -18,3 +18,5 @@ func _physics_process(delta: float) -> void:
 	
 func decrement_health():
 	GameManager.player_health -= 1	
+	if GameManager.player_health <= 0:
+		get_tree().change_scene_to_file("res://control.tscn")
