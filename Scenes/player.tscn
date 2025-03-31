@@ -156,6 +156,7 @@ max_db = -2.103
 
 [node name="OmniLight3D" type="OmniLight3D" parent="AudioPlayer"]
 light_color = Color(0, 0.640679, 0.966354, 1)
+light_energy = 2.556
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = 12.0
