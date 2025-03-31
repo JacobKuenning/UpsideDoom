@@ -284,6 +284,7 @@ flipcd = NodePath("FlipCooldown")
 guntimer = NodePath("GunTimer")
 as3D = NodePath("CameraController/AnimatedSprite3D")
 camcom = NodePath("CameraController")
+mouse_sens = 100
 projectile_speed = 100
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
