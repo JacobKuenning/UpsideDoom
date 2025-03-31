@@ -7,5 +7,6 @@
 albedo_texture = ExtResource("1_8ta2e")
 normal_enabled = true
 normal_texture = ExtResource("2_8cwjq")
-uv1_scale = Vector3(10, 10, 10)
+uv1_scale = Vector3(15, 15, 15)
+uv1_triplanar = true
 grow_amount = -0.08
