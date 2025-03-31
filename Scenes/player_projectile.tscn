@@ -119,11 +119,12 @@ animations = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_klkvw"]
 radius = 0.841739
 
-[node name="PlayerProjectile" type="RigidBody3D"]
+[node name="PlayerProjectile" type="RigidBody3D" node_paths=PackedStringArray("timer")]
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_nyyeu")
+timer = NodePath("Timer")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
@@ -146,7 +147,12 @@ shape = SubResource("SphereShape3D_klkvw")
 light_color = Color(0, 0.0333333, 1, 1)
 light_energy = 3.889
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
