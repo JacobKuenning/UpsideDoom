@@ -37,6 +37,8 @@ func decrement_enemy_count():
 	GameManager.enemy_count -= 1
 	if GameManager.enemy_count <= 0:
 		open_next_room()
+	if enemies.get_child_count() == 0 and enemies_ceil.get_child_count() == 0:
+		open_next_room()
 	
 func open_next_room():
 	exit_area.active = true
