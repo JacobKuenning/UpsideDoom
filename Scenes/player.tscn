@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://ceyoeys6sbsom"]
+[gd_scene load_steps=30 format=3 uid="uid://ceyoeys6sbsom"]
 
 [ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Script" uid="uid://sp2k3dk04e77" path="res://Scenes/health_bar.gd" id="2_3smsa"]
+[ext_resource type="AudioStream" uid="uid://1hhhejl78ma1" path="res://Assets/SFX/Shotgun_01.wav" id="2_8erm5"]
 [ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="2_x3wgy"]
 [ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="3_3smsa"]
 [ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="4_8erm5"]
@@ -146,6 +147,15 @@ guntimer = NodePath("GunTimer")
 as3D = NodePath("CameraController/AnimatedSprite3D")
 camcom = NodePath("CameraController")
 projectile_speed = 100
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_8erm5")
+max_db = -2.103
+
+[node name="OmniLight3D" type="OmniLight3D" parent="AudioPlayer"]
+light_color = Color(0, 0.640679, 0.966354, 1)
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = 12.0

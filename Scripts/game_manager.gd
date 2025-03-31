@@ -1,4 +1,5 @@
 extends Node3D
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @onready var projectiles = get_node("/root/Game/Projectiles")
 @onready var player = get_node("/root/Game/Player")
@@ -6,6 +7,7 @@ extends Node3D
 var player_health = 4
 
 func _ready():
+	audio_player.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
