@@ -35,6 +35,7 @@ func die():
 	var vfx = explosion.instantiate()
 	GameManager.vfx.add_child(vfx)
 	vfx.position = Vector3(global_position.x, vfxy, global_position.z)
+	GameManager.game_manager.decrement_enemy_count()
 	queue_free()
 	
 func hit():

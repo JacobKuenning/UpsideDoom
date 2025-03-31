@@ -8,3 +8,5 @@ var projectiles
 var vfx
 
 var player_health = 100
+
+var enemy_count = 0.0
