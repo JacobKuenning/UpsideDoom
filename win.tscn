@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpa5l18hetbxh"]
+
+[ext_resource type="Texture2D" uid="uid://ct3d11wk53yhc" path="res://Assets/UI/UPSIDE_DOOM_WIN.png" id="1_hgi8f"]
+[ext_resource type="Script" uid="uid://cxo6l01yfyq12" path="res://retry_button.gd" id="2_tmki8"]
+
+[node name="WIN" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 46.0
+
+[node name="UpsideDoomMainScreen" type="Sprite2D" parent="Panel"]
+position = Vector2(191, 105)
+scale = Vector2(0.198765, 0.193796)
+texture = ExtResource("1_hgi8f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 233.0
+offset_top = 107.0
+offset_right = 519.0
+offset_bottom = 212.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.319896, 0.452137)
+
+[node name="Back_WIN_Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back to Main Menu"
+script = ExtResource("2_tmki8")
+
+[connection signal="button_down" from="Panel/VBoxContainer/Back_WIN_Button" to="Panel/VBoxContainer/Back_WIN_Button" method="_on_button_down"]
