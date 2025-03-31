@@ -6,7 +6,8 @@ extends Node3D
 @export var bullet_speed = 5
 @export var health = 5
 @export var spread = 0.1
-
+var flipped = false
+var id =3
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
 

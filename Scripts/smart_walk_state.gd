@@ -20,8 +20,7 @@ func update(_delta):
 	
 func physics_update(_delta):
 	smart.rotation = smart.rotation.move_toward(player_tracker.rotationy, rotation_speed)
-	
-	smart.position = smart.position.move_toward(Vector3(GameManager.player_loc.x, 0, GameManager.player_loc.z), walk_speed)
+	smart.position = smart.position.move_toward(Vector3(GameManager.player_loc.x, smart.starting_y, GameManager.player_loc.z), walk_speed)
 	if smart.distance_to_player < distance_before_shooting:
 		Transitioned.emit(self, "shootstate")
 	pass

@@ -9,11 +9,16 @@ extends Node3D
 @export var walk_speed = 2.0
 @export var distance_before_shooting = 10.0
 var distance_to_player
+var id = 4
+var flipped = false
 
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
 
+var starting_y
+
 func _ready():
+	starting_y = position.y
 	player_tracker.projectile_speed = bullet_speed
 	player_tracker.spread = spread
 	for state in sm.get_children():
@@ -26,6 +31,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	distance_to_player = position.distance_to(GameManager.player_loc)
+	position.y = clamp(starting_y, starting_y, starting_y)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	health -= 1

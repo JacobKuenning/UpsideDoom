@@ -5,7 +5,8 @@ extends Node3D
 @export var as3d : AnimatedSprite3D
 var projectile = preload("res://Scenes/enemy_projectile.tscn")
 @export var projectile_speed = 10.0
-
+var flipped = false
+var id = 2
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
 

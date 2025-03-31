@@ -178,9 +178,10 @@ sm = NodePath("StateMachine")
 as3d = NodePath("AnimatedSprite3D")
 player_tracker = NodePath("PlayerTracker")
 bullet_speed = 10
+walk_speed = 0.1
 
 [node name="PlayerTracker" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01808, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_oms67")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

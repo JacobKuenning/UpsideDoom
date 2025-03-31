@@ -7,7 +7,7 @@ extends Node3D
 
 var spark = preload("res://Scenes/Spark.tscn")
 var explosion = preload("res://Scenes/Explosion.tscn")
-
+var id = 1
 
 var starting_y
 
