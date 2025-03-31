@@ -1,11 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://dkmms6ee41kve"]
+[gd_scene load_steps=11 format=3 uid="uid://dkmms6ee41kve"]
 
 [ext_resource type="Script" uid="uid://xcyap5gu4mj3" path="res://Scripts/game_manager.gd" id="1_qxrlw"]
-[ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_rbk5v"]
-[ext_resource type="Texture2D" uid="uid://w8tueoxskjr8" path="res://Sprites/GunSprites/GunSpriteSheet.png" id="3_rfjv2"]
-[ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="3_wowpa"]
-[ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="4_i6g32"]
-[ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="5_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://b2403mu4p01c7" path="res://Scenes/player.tscn" id="2_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://dyxouprsboiky" path="res://Scenes/melee.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://b3fus6a8tba5p" path="res://Scenes/sc_turret.tscn" id="7_1l0tm"]
 [ext_resource type="Material" uid="uid://dsuop6xvq52tj" path="res://Assets/Materials/StoneFloor.tres" id="8_h4fw4"]
@@ -18,128 +14,6 @@
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1phco"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(0, 0, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nb51f"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(480, 0, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnt18"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(960, 0, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(1440, 0, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85qyi"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(1920, 0, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iivbl"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(0, 270, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7nbq1"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(480, 270, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_exi56"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(960, 270, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7t8sx"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(1440, 270, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mg4q0"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(1920, 270, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vm72l"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(0, 540, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_22asu"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(480, 540, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkdbe"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(960, 540, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_81klo"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(1440, 540, 480, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgy6u"]
-atlas = ExtResource("3_rfjv2")
-region = Rect2(1920, 540, 480, 270)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cwurv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1phco")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nb51f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nnt18")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ewbju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85qyi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iivbl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7nbq1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_exi56")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7t8sx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mg4q0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vm72l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_22asu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fkdbe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_81klo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tgy6u")
-}],
-"loop": false,
-"name": &"Firing",
-"speed": 60.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hcwif"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ldgsr"]
-
 [node name="Game" type="Node3D"]
 script = ExtResource("1_qxrlw")
 
@@ -148,60 +22,8 @@ environment = SubResource("Environment_ebmjs")
 
 [node name="Projectiles" type="Node3D" parent="."]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("gm", "sm", "flipcd", "guntimer", "as3D", "camcom")]
+[node name="Player" parent="." instance=ExtResource("2_h4fw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_rbk5v")
-gm = NodePath("..")
-sm = NodePath("StateMachine")
-flipcd = NodePath("FlipCooldown")
-guntimer = NodePath("GunTimer")
-as3D = NodePath("CameraController/AnimatedSprite3D")
-camcom = NodePath("CameraController")
-projectile_speed = 100
-
-[node name="GunTimer" type="Timer" parent="Player"]
-wait_time = 0.05
-one_shot = true
-
-[node name="StateMachine" type="Node" parent="Player" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_wowpa")
-initial_state = NodePath("Normal")
-
-[node name="Normal" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("player", "camcon")]
-script = ExtResource("4_i6g32")
-player = NodePath("../..")
-camcon = NodePath("../../CameraController")
-
-[node name="Flipped" type="Node" parent="Player/StateMachine" node_paths=PackedStringArray("player", "camcon")]
-script = ExtResource("5_1l0tm")
-player = NodePath("../..")
-camcon = NodePath("../../CameraController")
-
-[node name="CameraController" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671399, -0.1)
-
-[node name="Camera3D" type="Camera3D" parent="Player/CameraController"]
-current = true
-fov = 85.0
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player/CameraController"]
-transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, -0.00139892, -0.457)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_cwurv")
-animation = &"Firing"
-autoplay = "Idle"
-frame_progress = 0.917869
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_hcwif")
-
-[node name="FlipCooldown" type="Timer" parent="Player"]
-one_shot = true
-
-[node name="Area3D" type="Area3D" parent="Player"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
-shape = SubResource("CapsuleShape3D_ldgsr")
 
 [node name="Enemies" type="Node3D" parent="."]
 
@@ -233,8 +55,3 @@ material_override = ExtResource("9_ldgsr")
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.23018, 0, -2.19097)
 
 [node name="VFX" type="Node3D" parent="."]
-
-[connection signal="timeout" from="Player/GunTimer" to="Player" method="_on_gun_timer_timeout"]
-[connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Normal" method="_on_flip_cooldown_timeout"]
-[connection signal="timeout" from="Player/FlipCooldown" to="Player/StateMachine/Flipped" method="_on_flip_cooldown_timeout"]
-[connection signal="area_entered" from="Player/Area3D" to="Player" method="_on_area_3d_area_entered"]

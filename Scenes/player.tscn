@@ -1,0 +1,187 @@
+[gd_scene load_steps=24 format=3 uid="uid://b2403mu4p01c7"]
+
+[ext_resource type="Script" uid="uid://4dpffi7cdx70" path="res://Scripts/player.gd" id="1_fkybt"]
+[ext_resource type="Script" uid="uid://6d4tfn4dmuc8" path="res://Scripts/state_machine.gd" id="2_x3wgy"]
+[ext_resource type="Script" uid="uid://cuq3xvt5vky56" path="res://Scripts/player_normal_state.gd" id="3_3smsa"]
+[ext_resource type="Script" uid="uid://djm1imy3k4k8y" path="res://Scripts/player_flipped_state.gd" id="4_8erm5"]
+[ext_resource type="Texture2D" uid="uid://w8tueoxskjr8" path="res://Sprites/GunSprites/GunSpriteSheet.png" id="5_f1ek2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1phco"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(0, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb51f"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(480, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnt18"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(960, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(1440, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qyi"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(1920, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iivbl"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(0, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nbq1"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(480, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exi56"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(960, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t8sx"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(1440, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg4q0"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(1920, 270, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm72l"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(0, 540, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22asu"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(480, 540, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkdbe"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(960, 540, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81klo"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(1440, 540, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgy6u"]
+atlas = ExtResource("5_f1ek2")
+region = Rect2(1920, 540, 480, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cwurv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1phco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb51f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnt18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewbju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85qyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iivbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nbq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exi56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t8sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg4q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm72l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22asu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkdbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81klo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgy6u")
+}],
+"loop": false,
+"name": &"Firing",
+"speed": 60.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hcwif"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ldgsr"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sm", "flipcd", "guntimer", "as3D", "camcom")]
+script = ExtResource("1_fkybt")
+sm = NodePath("StateMachine")
+flipcd = NodePath("FlipCooldown")
+guntimer = NodePath("GunTimer")
+as3D = NodePath("CameraController/AnimatedSprite3D")
+camcom = NodePath("CameraController")
+projectile_speed = 100
+
+[node name="GunTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_x3wgy")
+initial_state = NodePath("Normal")
+
+[node name="Normal" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "camcon")]
+script = ExtResource("3_3smsa")
+player = NodePath("../..")
+camcon = NodePath("../../CameraController")
+
+[node name="Flipped" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "camcon")]
+script = ExtResource("4_8erm5")
+player = NodePath("../..")
+camcon = NodePath("../../CameraController")
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671399, -0.1)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+current = true
+fov = 85.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CameraController"]
+transform = Transform3D(0.314025, 0, 0, 0, 0.314025, 0, 0, 0, 1, -0.004, -0.00139892, -0.457)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_cwurv")
+animation = &"Firing"
+autoplay = "Idle"
+frame_progress = 0.917869
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_hcwif")
+
+[node name="FlipCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_ldgsr")
+
+[connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
+[connection signal="timeout" from="FlipCooldown" to="StateMachine/Normal" method="_on_flip_cooldown_timeout"]
+[connection signal="timeout" from="FlipCooldown" to="StateMachine/Flipped" method="_on_flip_cooldown_timeout"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

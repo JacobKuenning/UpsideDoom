@@ -15,5 +15,4 @@ func _physics_process(delta: float) -> void:
 	GameManager.vfx = vfx
 	
 func decrement_health():
-	player_health -= 1	
-	print("lost health")
+	GameManager.player_health -= 1	
