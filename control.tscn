@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://fpscivexojsn"]
+[gd_scene load_steps=5 format=3 uid="uid://fpscivexojsn"]
 
 [ext_resource type="Texture2D" uid="uid://b3rgkmilbxs20" path="res://Assets/UI/Upside doom_ded.png" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://cxo6l01yfyq12" path="res://retry_button.gd" id="2_ee4bf"]
+[ext_resource type="Script" uid="uid://h80c1g87qjhy" path="res://cry_button.gd" id="2_qtu10"]
+[ext_resource type="AudioStream" uid="uid://jx8ht3tsesvg" path="res://Assets/SFX/baby.mp3" id="3_ee4bf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 46.0
 
 [node name="UpsideDoomMainScreen" type="Sprite2D" parent="Panel"]
@@ -37,7 +41,17 @@ grow_vertical = 2
 [node name="Retry_Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Retry"
+script = ExtResource("2_ee4bf")
 
-[node name="Cry_Button" type="Button" parent="Panel/VBoxContainer"]
+[node name="Cry_Button" type="Button" parent="Panel/VBoxContainer" node_paths=PackedStringArray("asp")]
 layout_mode = 2
 text = "Cry to Momma"
+script = ExtResource("2_qtu10")
+asp = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel/VBoxContainer/Cry_Button"]
+stream = ExtResource("3_ee4bf")
+
+[connection signal="button_down" from="Panel/VBoxContainer/Retry_Button" to="Panel/VBoxContainer/Retry_Button" method="_on_button_down"]
+[connection signal="button_down" from="Panel/VBoxContainer/Cry_Button" to="Panel/VBoxContainer/Cry_Button" method="_on_button_down"]
+[connection signal="finished" from="Panel/VBoxContainer/Cry_Button/AudioStreamPlayer" to="Panel/VBoxContainer/Cry_Button" method="_on_audio_stream_player_finished"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6bed8allijpp"]
+[gd_scene load_steps=5 format=3 uid="uid://c6bed8allijpp"]
 
 [ext_resource type="Texture2D" uid="uid://cht0p1aml36co" path="res://Assets/UI/Upside_Doom_Main_Screen.png" id="1_ouk20"]
 [ext_resource type="Texture2D" uid="uid://bse3v23kweiwr" path="res://Assets/UI/Inverxion studios.png" id="2_mae5d"]
+[ext_resource type="Script" uid="uid://8k2ro730vwon" path="res://Scenes/start_button.gd" id="3_158mb"]
+[ext_resource type="Script" uid="uid://br71djwjluxry" path="res://Scenes/exit_button.gd" id="3_cayip"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -38,6 +40,7 @@ offset_bottom = 560.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Start"
+script = ExtResource("3_158mb")
 
 [node name="Info_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -48,3 +51,7 @@ text = "Info"
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Exit"
+script = ExtResource("3_cayip")
+
+[connection signal="button_down" from="VBoxContainer/Start_Button" to="VBoxContainer/Start_Button" method="_on_button_down"]
+[connection signal="button_down" from="VBoxContainer/Exit_Button" to="VBoxContainer/Exit_Button" method="_on_button_down"]
