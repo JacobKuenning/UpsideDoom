@@ -1,6 +1,6 @@
 extends CharacterBody3D
 var projectile = preload("res://Scenes/player_projectile.tscn")
-@export var gm : Node3D
+@onready var gm = get_node("/root/GameManager")
 @export var sm : Node
 @export var flipcd : Timer
 @export var guntimer : Timer
