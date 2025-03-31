@@ -8,3 +8,4 @@ albedo_texture = ExtResource("1_fm37m")
 normal_enabled = true
 normal_texture = ExtResource("2_3lu3b")
 uv1_scale = Vector3(15, 15, 15)
+uv1_triplanar = true
